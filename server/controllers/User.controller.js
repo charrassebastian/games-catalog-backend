@@ -9,7 +9,7 @@ module.exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
         if (!username || !password) {
-            const error = "El nombre de usuario o la contraseña no estaban presentes en la solicitud."
+            const error = "The username or the password was not present in the request"
             res.status(401).json({ status: 'error', error })
         } else {
             
@@ -19,7 +19,7 @@ module.exports.login = async (req, res) => {
                 const token = jwt.sign({ username, password }, process.env.JWT_SECRET)
                 res.json({ status: 'ok', token })
             } else {
-                const error = 'El usuario no pudo ser encontrado'
+                const error = 'The user could not be found'
                 res.status(401).json({ status: 'error', error })
             }
         }

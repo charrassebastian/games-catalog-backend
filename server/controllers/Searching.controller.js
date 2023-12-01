@@ -58,7 +58,7 @@ module.exports.getGames = async (req, res) => {
             }
 
             const shouldHaveValidatedContent = req.query.onlyValidatedContent === 'true'
-            const nonValidOption = "Elegí una opción"
+            const nonValidOption = "Choose an option"
             const shouldFilterByArea = req.query.area?.length && req.query.area !== nonValidOption
             const shouldFilterByPurpose = req.query.purpose?.length && req.query.purpose !== nonValidOption
             const shouldFilterByMarket = req.query.market?.length && req.query.market !== nonValidOption
@@ -96,7 +96,7 @@ module.exports.getGames = async (req, res) => {
 
             res.json({ status: 'ok', games: orderedGames })
         } else {
-            const error = 'No se encontraron juegos'
+            const error = 'No game was found'
             res.status(500).json({ status: 'error', error })
         }
     } catch (error) {

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+      - name: express
+        image: sebastiancharras/juegos-serios-backend
+        ports:
+        - containerPort: 8082 
+        env:
+        - name: NODE_PORT
+          value: "8082"
+        - name: DB_URI
+          value: "mongodb://mongodb:27017/"
+        - name: JWT_SECRET
+          value: secret

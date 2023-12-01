@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: express
+  name: games-catalog-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: express
+      app: games-catalog-backend
   template:
     metadata:
       labels:
-        app: express
+        app: games-catalog-backend
     spec:
       containers:
-      - name: express
-        image: sebastiancharras/juegos-serios-backend
+      - name: games-catalog-backend
+        image: sebastiancharras/games-catalog-backend
         ports:
         - containerPort: 8082 
         env:

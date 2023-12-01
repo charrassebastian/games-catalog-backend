@@ -1,19 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: mongodb
 spec:
-  replicas: 1
+  type: ClusterIP
+  ports:
+  - port: 27017
   selector:
-    matchLabels:
-      app: mongodb
-  template:
-    metadata:
-      labels:
-        app: mongodb
-    spec:
-      containers:
-      - name: mongodb
-        image: sebastiancharras/juegos-serios-mongo
-        ports:
-        - containerPort: 27017
+    app: mongodb 

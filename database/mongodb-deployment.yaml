@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: mongo:latest
+        image: sebastiancharras/juegos-serios-mongo
         ports:
         - containerPort: 27017

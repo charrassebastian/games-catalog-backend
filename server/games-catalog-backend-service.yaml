@@ -5,6 +5,6 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 8082
+  - port: 80
   selector:
     app: games-catalog-backend 

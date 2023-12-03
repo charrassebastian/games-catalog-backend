@@ -16,10 +16,10 @@ spec:
       - name: games-catalog-backend
         image: sebastiancharras/games-catalog-backend
         ports:
-        - containerPort: 8082 
+        - containerPort: 80 
         env:
         - name: NODE_PORT
-          value: "8082"
+          value: "80"
         - name: DB_URI
           value: "mongodb://games-catalog-database:27017/"
         - name: JWT_SECRET

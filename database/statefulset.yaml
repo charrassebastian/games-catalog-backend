@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: games-db
+spec:
+  selector:
+    matchLabels:
+      app: games-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: games-db
+    spec:
+      containers:
+        - name: games-db
+          image: mongo:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 27017
+              name: games-db
+          volumeMounts:
+            - name: games-catalog-persistent-storage
+              mountPath: "/games/data/db"
+      volumes:
+        - name: games-catalog-persistent-storage
+          persistentVolumeClaim:
+            claimName: games-catalog-pvc

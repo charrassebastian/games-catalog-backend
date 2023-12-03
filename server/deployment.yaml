@@ -21,6 +21,6 @@ spec:
         - name: NODE_PORT
           value: "80"
         - name: DB_URI
-          value: "mongodb://games-catalog-database:27017/"
+          value: "mongodb://games-db:27017/"
         - name: JWT_SECRET
           value: secret
